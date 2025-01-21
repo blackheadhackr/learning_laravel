@@ -5,4 +5,4 @@ use App\Http\Controllers\Dashboard;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('home', [dashboard::class , 'home'] );
+Route::get('dashboard', [dashboard::class , 'home'] );
