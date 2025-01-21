@@ -159,10 +159,11 @@
                         </div>
                     </div>
                 </div>
+                @include('admin.common.footer')
             </main>
         </div>
     </div>
-    @include('admin.common.footer')
+    
 </body>
 
 </html>
