@@ -178,4 +178,46 @@ a {
 .order-visitor-card:hover {
   background: var(--navbar) !important;
   color: var(--main);
+}
+
+.f-icon {
+  font-size: 30px !important;
+}
+
+/* Pagination Button Styles */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 2px;
+  color: #007bff;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+/* Current Page Button (Active) */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* Pagination Button Hover Effect */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background-color: #0056b3;
+  color: white;
+  border-color: #0056b3;
+}
+
+/* Disable pagination buttons (for disabled state) */
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+  color: #ccc;
+  border-color: #ccc;
+  background-color: #f8f9fa;
+}
+
+/* Style the "Next" and "Previous" buttons */
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next {
+  padding: 5px 15px;
 }/*# sourceMappingURL=style.css.map */

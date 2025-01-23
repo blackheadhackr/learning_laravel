@@ -8,9 +8,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link {{ request()->is('category') ? 'active' : '' }}" href="/category">
                                 <span data-feather="file"></span>
-                                Orders
+                                Category
                             </a>
                         </li>
                         <li class="nav-item">
@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="https://codepen.io/kalvincalimag/pen/BaepLXb">
                                 <span data-feather="file-text"></span>
                                 Social engagement
                             </a>
