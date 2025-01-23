@@ -9,7 +9,7 @@
     <meta name="generator" content="Hugo 0.84.0">
     <title>Dashboard Template · Bootstrap v5.0</title>
     @include('admin.common.headlink')
-    
+    <link rel="shortcut icon" href="{{asset('assets/images/icons/fabicon.png')}}" type="image/x-icon">
 </head>
 
 <body>
