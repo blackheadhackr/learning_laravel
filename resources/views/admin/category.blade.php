@@ -25,13 +25,16 @@
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Category</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
-                        <a class="btn btn-success" style="float:left;margin-right:20px;" href="#">ADD Category</a>
+                        <a class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop"style="float:left;margin-right:20px;" href="#">ADD
+                            Category</a>
                     </div>
                 </div>
                 <section>
                     <div style="overflow-x:auto;">
-                        
-                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+
+                        <table id="example" class="table table-striped table-bordered-success" cellspacing="0"
+                            width="100%">
                             <thead>
                                 <tr>
                                     <th>S. No.</th>
@@ -43,68 +46,34 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Row:1 Cell:1</td>
-                                    <td>Row:1 Cell:2</td>
-                                    <td>Row:1 Cell:3</td>
-                                    <td>Row:1 Cell:4</td>
-                                    <td>Row:1 Cell:5</td>
+                                    <td>1</td>
+                                    <td>ABC</td>
+                                    <td>50</td>
+                                    <td>ABC1234</td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="First group">
+                                            <button type="button" class="btn btn-success"><i class="bi bi-pencil-fill"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i></button>
+                                            <button type="button" class="btn btn-warning text-light"><i class="bi bi-record-circle"></i></button>
+                                            <button type="button" class="btn btn-info text-light"><i class="bi bi-patch-check-fill"></i></button>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>Row:2 Cell:1</td>
-                                    <td>Row:2 Cell:2</td>
-                                    <td>Row:2 Cell:3</td>
-                                    <td>Row:2 Cell:4</td>
-                                    <td>Row:2 Cell:5</td>
+                                    <td>1</td>
+                                    <td>ABC</td>
+                                    <td>50</td>
+                                    <td>ABC1234</td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="First group">
+                                            <button type="button" class="btn btn-success"><i class="bi bi-pencil-fill"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i></button>
+                                            <button type="button" class="btn btn-warning text-light"><i class="bi bi-record-circle"></i></button>
+                                            <button type="button" class="btn btn-info text-light"><i class="bi bi-patch-check-fill"></i></button>
+                                        </div>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>Row:3 Cell:1</td>
-                                    <td>Row:3 Cell:2</td>
-                                    <td>Row:3 Cell:3</td>
-                                    <td>Row:3 Cell:4</td>
-                                    <td>Row:3 Cell:5</td>
-                                </tr>
-                                <tr>
-                                    <td>Row:4 Cell:1</td>
-                                    <td>Row:4 Cell:2</td>
-                                    <td>Row:4 Cell:3</td>
-                                    <td>Row:4 Cell:4</td>
-                                    <td>Row:4 Cell:5</td>
-                                </tr>
-                                <tr>
-                                    <td>Row:5 Cell:1</td>
-                                    <td>Row:5 Cell:2</td>
-                                    <td>Row:5 Cell:3</td>
-                                    <td>Row:5 Cell:4</td>
-                                    <td>Row:5 Cell:5</td>
-                                </tr>
-                                <tr>
-                                    <td>Row:6 Cell:1</td>
-                                    <td>Row:6 Cell:2</td>
-                                    <td>Row:6 Cell:3</td>
-                                    <td>Row:6 Cell:4</td>
-                                    <td>Row:6 Cell:5</td>
-                                </tr>
-                                <tr>
-                                    <td>Row:7 Cell:1</td>
-                                    <td>Row:7 Cell:2</td>
-                                    <td>Row:7 Cell:3</td>
-                                    <td>Row:7 Cell:4</td>
-                                    <td>Row:7 Cell:5</td>
-                                </tr>
-                                <tr>
-                                    <td>Row:8 Cell:1</td>
-                                    <td>Row:8 Cell:2</td>
-                                    <td>Row:8 Cell:3</td>
-                                    <td>Row:8 Cell:4</td>
-                                    <td>Row:8 Cell:5</td>
-                                </tr>
-                                <tr>
-                                    <td>Row:9 Cell:1</td>
-                                    <td>Row:9 Cell:2</td>
-                                    <td>Row:9 Cell:3</td>
-                                    <td>Row:9 Cell:4</td>
-                                    <td>Row:9 Cell:5</td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -113,6 +82,56 @@
                 @include('admin.common.footer')
             </main>
         </div>
+        {{-- pop up modal --}}
+
+        <!-- Modal -->
+
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header card-header">
+                        <h5>Add Category</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+
+                            <div class="card-block">
+                                <form class="form-material">
+                                    <div class="form-group form-default form-static-label">
+                                        <input type="text" name="footer-email" class="form-control"
+                                            placeholder="Product Name">
+
+                                    </div>
+                                    <div class="form-group form-default form-static-label">
+                                        <input type="text" name="footer-email" class="form-control"
+                                            placeholder="Quality (OEM)">
+
+                                    </div>
+                                    <div class="form-group form-default form-static-label">
+                                        <input type="password" name="footer-email" class="form-control"
+                                            placeholder="Model Number">
+
+                                    </div>
+                                    <div class="form-group form-default form-static-label">
+                                        <input class="form-control" type="file" id="formFileMultiple" multiple>
+
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- End pop up modal --}}
+
     </div>
 
     <script>
