@@ -255,6 +255,7 @@ th.sorting_desc::after {
   background-color: transparent;
   box-shadow: none;
   border-bottom: 1px solid var(--bg-color);
+  border-radius: 0.4rem;
 }
 
 .btn:focus {
