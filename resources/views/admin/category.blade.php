@@ -96,36 +96,36 @@
                     </div>
                     <div class="modal-body">
                         <div class="card">
-
                             <div class="card-block">
-                                <form class="form-material">
+                                <form class="form-material" action="add-catg" method="post" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="footer-email" class="form-control"
+                                        <input type="text" name="name" class="form-control"
                                             placeholder="Product Name">
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="footer-email" class="form-control"
+                                        <input type="text" name="quality" class="form-control"
                                             placeholder="Quality (OEM)">
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="password" name="footer-email" class="form-control"
+                                        <input type="text" name="model" class="form-control"
                                             placeholder="Model Number">
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input class="form-control" type="file" id="formFileMultiple" multiple>
+                                        <input class="form-control" type="file" name="modelimg">
 
                                     </div>
-
+                                    <button type="submit" class="btn btn-primary mt-3">Add Catg</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
+                        {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
                     </div>
                 </div>
             </div>
