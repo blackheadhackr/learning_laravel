@@ -100,23 +100,25 @@
                                 <form class="form-material" action="add-catg" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="name" class="form-control"
-                                            placeholder="Product Name">
+                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" placeholder="Product Name">
+                                        <span class="text-danger">@error('name') {{$message}} @enderror</span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="quality" class="form-control"
-                                            placeholder="Quality (OEM)">
+                                        <input type="text" name="quality" class="form-control @error('quality') is-invalid @enderror"
+                                            value="{{old('quality')}}" placeholder="Quality (OEM)">
+                                            <span class="text-danger">@error('quality') {{$message}} @enderror</span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="model" class="form-control"
-                                            placeholder="Model Number">
+                                        <input type="text" name="model" class="form-control @error('model') is-invalid @enderror"
+                                            value="{{old('model')}}" placeholder="Model Number">
+                                            <span class="text-danger">@error('model') {{$message}} @enderror</span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input class="form-control" type="file" name="modelimg">
-
+                                        <input class="form-control @error('modelimg') is-invalid @enderror" type="file" name="modelimg">
+                                        <span class="text-danger">@error('modelimg') {{$message}} @enderror</span>
                                     </div>
                                     <button type="submit" class="btn btn-primary mt-3">Add Catg</button>
                                 </form>
@@ -130,7 +132,6 @@
                 </div>
             </div>
         </div>
-        {{-- End pop up modal --}}
 
     </div>
 

@@ -1,0 +1,1 @@
+<img src="{{asset('storage/'.$imag)}}" alt="this image not found">
