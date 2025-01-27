@@ -16,7 +16,8 @@ class Catg extends Controller
             'required' => 'Please fill this feild'
         ]);
         if($validate){
-            $path = $req->file('modelimg')->store("storage", "public");
+            $a = $req->file('modelimg');
+            $path = $req->file('modelimg')->store("storage","public");
             $img = explode('/',$path);
             $imgname = $img[1];
             return view('image',['imag' => $imgname]);
