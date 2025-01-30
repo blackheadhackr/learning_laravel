@@ -36,7 +36,64 @@ class Catg extends Controller
        
     }
     public function edit_catg(Request $req){
-        echo "this is category edit function";
+        // return $req->input();exit;
+        if($req->file('editmodelimg') != null){
+            $validate = $req->validate([
+                'editname' => 'required',
+                'editquality' => 'required',
+                'editmodel' => 'required',
+                'editmodelimg' => ['required', 'extensions:jpg,png,webp'],
+            ],[
+                'required' => 'Please fill this feild'
+            ]);
+
+            if($validate){
+                $id = $req->input('id');
+    
+                $editpath = $req->file('editmodelimg')->store('storage','public');
+                $image = explode('/',$editpath);
+                $imagename = $image[1];
+    
+    
+                $data = Catge::find($id);
+                if($data){
+                    $data->update([
+                        'name' => $req->input('editname'),
+                        'quality' => $req->input('editquality'),
+                        'model_no' => $req->input('editmodel'),
+                        'img_name' => $imagename,
+                    ]);
+                    return redirect('category');
+                }
+            }
+        }else{
+            $validate = $req->validate([
+                'editname' => 'required',
+                'editquality' => 'required',
+                'editmodel' => 'required',
+            ],[
+                'required' => 'Please fill this feild'
+            ]);
+
+            if($validate){
+                $id = $req->input('id'); 
+    
+                $data = Catge::find($id);
+                if($data){
+                    $data->update([
+                        'name' => $req->input('editname'),
+                        'quality' => $req->input('editquality'),
+                        'model_no' => $req->input('editmodel'),
+                    ]);
+                    return redirect('category');
+                }
+            }
+        }
+        
+
+        
+        
+        
     }
     public function singledata(Request $req){
         $id =$req->input('id');

@@ -174,41 +174,41 @@
                                     @csrf
                                     <input type="hidden" name="id" id="editid">
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Product Name" id="editname">
+                                        <input type="text" name="editname" class="form-control @error('editname') is-invalid @enderror" value="{{ old('editname') }}" placeholder="Product Name" id="editname">
                                         <span class="text-danger">
-                                            @error('name')
+                                            @error('editname')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="quality"
-                                            class="form-control @error('quality') is-invalid @enderror"
-                                            value="{{ old('quality') }}" placeholder="Quality (OEM)" id="editquality">
+                                        <input type="text" name="editquality"
+                                            class="form-control @error('editquality') is-invalid @enderror"
+                                            value="{{ old('editquality') }}" placeholder="Quality (OEM)" id="editquality">
                                         <span class="text-danger">
-                                            @error('quality')
+                                            @error('editquality')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="model"
-                                            class="form-control @error('model') is-invalid @enderror"
-                                            value="{{ old('model') }}" placeholder="Model Number" id="mainmodeledit">
+                                        <input type="text" name="editmodel"
+                                            class="form-control @error('editmodel') is-invalid @enderror"
+                                            value="{{ old('editmodel') }}" placeholder="Model Number" id="mainmodeledit">
                                         <span class="text-danger">
-                                            @error('model')
+                                            @error('editmodel')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input class="form-control @error('modelimg') is-invalid @enderror"
-                                            type="file" name="modelimg">
+                                        <input class="form-control @error('editmodelimg') is-invalid @enderror"
+                                            type="file" name="editmodelimg">
                                         <span class="text-danger">
-                                            @error('modelimg')
+                                            @error('editmodelimg')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -293,25 +293,25 @@
     </script>
     <script>
         $(document).ready(function() {
-    $(".main-edit").on('click', function() {
-        var buttonId = $(this).attr('id');
-        
-        $.ajax({
-            url: "{{ route('single') }}", 
-            type: "POST", 
-            data: {
-                _token: '{{ csrf_token() }}', 
-                id: buttonId 
-            },
-            success: function(data) {
-                $('#editid').val(data.id);
-                $('#editname').val(data.name);
-                $('#editquality').val(data.quality);
-                $('#mainmodeledit').val(data.model_no);
-            }
+            $(".main-edit").on('click', function() {
+                var buttonId = $(this).attr('id');
+                
+                $.ajax({
+                    url: "{{ route('single') }}", 
+                    type: "POST", 
+                    data: {
+                        _token: '{{ csrf_token() }}', 
+                        id: buttonId 
+                    },
+                    success: function(data) {
+                        $('#editid').val(data.id);
+                        $('#editname').val(data.name);
+                        $('#editquality').val(data.quality);
+                        $('#mainmodeledit').val(data.model_no);
+                    }
+                });
+            });
         });
-    });
-});
 
     </script>
 </body>
