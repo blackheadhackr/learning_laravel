@@ -40,10 +40,10 @@
                         <div class="card bg-c-red total-card">
                             <div class="card-block">
                                 <div class="text-left">
-                                    <h4>489</h4>
-                                    <p class="m-0">Total Comment</p>
+                                    <h4>{{count($catg)}}</h4>
+                                    <p class="m-0">Category Count</p>
                                 </div>
-                                <span class="label bg-c-red value-badges">15%</span>
+                                <span class="label bg-c-red value-badges"><i class="fa fa-database" aria-hidden="true"></i></span>
                             </div>
                         </div>
                     </div>

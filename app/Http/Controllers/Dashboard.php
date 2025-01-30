@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Catg;
+use App\Models\Catge;
+use Illuminate\support\Facades\DB;
 class Dashboard extends Controller
 {
     public function home(){
-        return view('admin.home');
+        $catg = DB::table('category')->orderBy('id','desc')->get();
+        return view('admin.home',['catg'=>$catg]);
     }
-    public function category(){
-        return view('admin.category');
+    public function category(Request $req){
+        $catg = DB::table('category')->orderBy('id','desc')->get();
+        return view('admin.category',['catg'=>$catg]);
     }
 }

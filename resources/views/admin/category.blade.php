@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <section>
-                    <div style="overflow-x:auto;">
+                    <div style="overflow-x:auto; table-responsive">
 
                         <table id="example" class="table table-striped table-bordered-success" cellspacing="0"
                             width="100%">
@@ -41,39 +41,39 @@
                                     <th>Laptop Name</th>
                                     <th>Quality</th>
                                     <th>Model Number</th>
+                                    <th>image</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>ABC</td>
-                                    <td>50</td>
-                                    <td>ABC1234</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="First group">
-                                            <button type="button" class="btn btn-success"><i class="bi bi-pencil-fill"></i></button>
-                                            <button type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i></button>
-                                            <button type="button" class="btn btn-warning text-light"><i class="bi bi-record-circle"></i></button>
-                                            <button type="button" class="btn btn-info text-light"><i class="bi bi-patch-check-fill"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>ABC</td>
-                                    <td>50</td>
-                                    <td>ABC1234</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="First group">
-                                            <button type="button" class="btn btn-success"><i class="bi bi-pencil-fill"></i></button>
-                                            <button type="button" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i></button>
-                                            <button type="button" class="btn btn-warning text-light"><i class="bi bi-record-circle"></i></button>
-                                            <button type="button" class="btn btn-info text-light"><i class="bi bi-patch-check-fill"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
+                                @php
+                                    $count = 1;
+                                @endphp
+                                @foreach ($catg as $a)
+                                    <tr>
+                                        <td>{{ $count++ }}</td>
+                                        <td>{{ $a->name }}</td>
+                                        <td>{{ $a->quality }}</td>
+                                        <td>{{ $a->model_no }}</td>
+                                        <td><img src="{{ asset('storage/storage/' . $a->img_name) }}"
+                                                alt="Uploaded Image" style="width:12rem"></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="First group">
+                                                <button type="button" class="btn btn-success main-edit"
+                                                    id="{{ $a->id }}" data-bs-toggle="modal"
+                                                    data-bs-target="#editmodel"><i
+                                                        class="bi bi-pencil-fill"></i></button>
+                                                <button type="button" class="btn btn-danger"><i
+                                                        class="bi bi-x-circle-fill"></i></button>
+                                                <button type="button" class="btn btn-warning text-light"><i
+                                                        class="bi bi-record-circle"></i></button>
+                                                <button type="button" class="btn btn-info text-light"><i
+                                                        class="bi bi-patch-check-fill"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
@@ -97,28 +97,50 @@
                     <div class="modal-body">
                         <div class="card">
                             <div class="card-block">
-                                <form class="form-material" action="add-catg" method="post" enctype="multipart/form-data">
+                                <form class="form-material" action="add-catg" method="post"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" placeholder="Product Name">
-                                        <span class="text-danger">@error('name') {{$message}} @enderror</span>
+                                        <input type="text" name="name"
+                                            class="form-control @error('name') is-invalid @enderror"
+                                            value="{{ old('name') }}" placeholder="Product Name">
+                                        <span class="text-danger">
+                                            @error('name')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="quality" class="form-control @error('quality') is-invalid @enderror"
-                                            value="{{old('quality')}}" placeholder="Quality (OEM)">
-                                            <span class="text-danger">@error('quality') {{$message}} @enderror</span>
+                                        <input type="text" name="quality"
+                                            class="form-control @error('quality') is-invalid @enderror"
+                                            value="{{ old('quality') }}" placeholder="Quality (OEM)">
+                                        <span class="text-danger">
+                                            @error('quality')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="model" class="form-control @error('model') is-invalid @enderror"
-                                            value="{{old('model')}}" placeholder="Model Number">
-                                            <span class="text-danger">@error('model') {{$message}} @enderror</span>
+                                        <input type="text" name="model"
+                                            class="form-control @error('model') is-invalid @enderror"
+                                            value="{{ old('model') }}" placeholder="Model Number">
+                                        <span class="text-danger">
+                                            @error('model')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input class="form-control @error('modelimg') is-invalid @enderror" type="file" name="modelimg">
-                                        <span class="text-danger">@error('modelimg') {{$message}} @enderror</span>
+                                        <input class="form-control @error('modelimg') is-invalid @enderror"
+                                            type="file" name="modelimg">
+                                        <span class="text-danger">
+                                            @error('modelimg')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                     <button type="submit" class="btn btn-primary mt-3">Add Catg</button>
                                 </form>
@@ -133,14 +155,83 @@
             </div>
         </div>
 
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="editmodel" tabindex="-1" aria-labelledby="editmodelLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-light">
+                        <h5 class="modal-title" id="editmodelLabel">Edit Category</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-block">
+                                <form class="form-material" action="edit-catg" method="post"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="id" id="editid">
+                                    <div class="form-group form-default form-static-label">
+                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Product Name" id="editname">
+                                        <span class="text-danger">
+                                            @error('name')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+
+                                    </div>
+                                    <div class="form-group form-default form-static-label">
+                                        <input type="text" name="quality"
+                                            class="form-control @error('quality') is-invalid @enderror"
+                                            value="{{ old('quality') }}" placeholder="Quality (OEM)" id="editquality">
+                                        <span class="text-danger">
+                                            @error('quality')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+
+                                    </div>
+                                    <div class="form-group form-default form-static-label">
+                                        <input type="text" name="model"
+                                            class="form-control @error('model') is-invalid @enderror"
+                                            value="{{ old('model') }}" placeholder="Model Number" id="mainmodeledit">
+                                        <span class="text-danger">
+                                            @error('model')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+
+                                    </div>
+                                    <div class="form-group form-default form-static-label">
+                                        <input class="form-control @error('modelimg') is-invalid @enderror"
+                                            type="file" name="modelimg">
+                                        <span class="text-danger">
+                                            @error('modelimg')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-3">Update Catg</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
         $(document).ready(function() {
-            //Only needed for the filename of export files.
-            //Normally set in the title tag of your page.
+
             document.title = "Card View DataTable";
-            // DataTable initialisation
             $("#example").DataTable({
                 dom: '<"dt-buttons"Bf><"clear">lirtp',
                 paging: true,
@@ -199,6 +290,29 @@
                 // }
             });
         });
+    </script>
+    <script>
+        $(document).ready(function() {
+    $(".main-edit").on('click', function() {
+        var buttonId = $(this).attr('id');
+        
+        $.ajax({
+            url: "{{ route('single') }}", 
+            type: "POST", 
+            data: {
+                _token: '{{ csrf_token() }}', 
+                id: buttonId 
+            },
+            success: function(data) {
+                $('#editid').val(data.id);
+                $('#editname').val(data.name);
+                $('#editquality').val(data.quality);
+                $('#mainmodeledit').val(data.model_no);
+            }
+        });
+    });
+});
+
     </script>
 </body>
 
