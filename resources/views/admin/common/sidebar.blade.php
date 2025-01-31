@@ -14,9 +14,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link {{request()->is('product')?'active' : ''}}" href="/product">
                                 <span data-feather="shopping-cart"></span>
-                                Products
+                                Product In
                             </a>
                         </li>
                         <li class="nav-item">

@@ -15,4 +15,9 @@ class Dashboard extends Controller
         $catg = DB::table('category')->orderBy('id','desc')->get();
         return view('admin.category',['catg'=>$catg]);
     }
+    public function product(Request $req){
+        $catg = DB::table('category')->orderBy('id','desc')->get();
+        return view('admin.productin',['catg'=>$catg]);
+    }
+
 }

@@ -89,15 +89,24 @@ class Catg extends Controller
                 }
             }
         }
-        
-
-        
-        
-        
     }
     public function singledata(Request $req){
         $id =$req->input('id');
         $data = DB::table('category')->where('id',$id)->first();
         return response()->json($data);
+    }
+    public function deldata(Request $req){
+        $id = $req->input('id');
+        $data = Catge::where('id', $id)->delete();
+        if($data){
+            $deldata = array(
+                'result' => 'success',
+            );
+        }else{
+            $deldata = array(
+                'result' => 'error',
+            );
+        }
+        return response()->json($deldata);
     }
 }
