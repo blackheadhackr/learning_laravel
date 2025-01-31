@@ -31,6 +31,11 @@
                     </div>
                 </div>
                 <section>
+                    @if (session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{session('success')}}
+                    </div>
+                    @endif
                     <div style="overflow-x:auto; table-responsive">
 
                         <table id="producttable" class="table table-striped table-bordered-success" cellspacing="0"
@@ -38,10 +43,12 @@
                             <thead>
                                 <tr>
                                     <th>S. No.</th>
-                                    <th>Laptop Name</th>
-                                    <th>Quality</th>
-                                    <th>Model Number</th>
-                                    <th>image</th>
+                                    <th>Product Name</th>
+                                    <th>Model Num.</th>
+                                    <th>Recived Through</th>
+                                    <th>Dealer Name</th>
+                                    <th>Quantity</th>
+                                    <th>Date Of Recived</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -49,14 +56,15 @@
                                 @php
                                     $count = 1;
                                 @endphp
-                                @foreach ($catg as $a)
-                                    <tr id="{{ $a->id }}">
+                                @foreach ($product as $a)
+                                    <tr>
                                         <td>{{ $count++ }}</td>
                                         <td>{{ $a->name }}</td>
-                                        <td>{{ $a->quality }}</td>
                                         <td>{{ $a->model_no }}</td>
-                                        <td><img src="{{ asset('storage/storage/' . $a->img_name) }}"
-                                                alt="Uploaded Image" style="width:12rem"></td>
+                                        <td>{{ $a->received }}</td>
+                                        <td>{{ $a->dealer }}</td>
+                                        <td>{{ $a->quantity }}</td>
+                                        <td>{{ $a->date }}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="First group">
                                                 <button type="button" class="btn btn-success main-edit"
@@ -98,50 +106,83 @@
                     <div class="modal-body">
                         <div class="card">
                             <div class="card-block">
-                                <form class="form-material" action="add-catg" method="post"
-                                    enctype="multipart/form-data">
+                                <form class="form-material" action="{{route('insertproduct')}}" method="post">
                                     @csrf
                                     <div class="form-group form-default form-static-label">
                                         <input type="text" name="name"
                                             class="form-control @error('name') is-invalid @enderror"
-                                            value="{{ old('name') }}" placeholder="Product Name">
+                                            value="{{ old('name') }}" placeholder="Product Name..." list="product_name">
                                         <span class="text-danger">
                                             @error('name')
                                                 {{ $message }}
                                             @enderror
                                         </span>
+                                            <datalist id="product_name">
+                                                @foreach ($catg as $a)
+                                                <option value="{{$a->name}}">
+                                                @endforeach
+                                            </datalist>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="quality"
-                                            class="form-control @error('quality') is-invalid @enderror"
-                                            value="{{ old('quality') }}" placeholder="Quality (OEM)">
+                                        <input type="text" name="modelno"
+                                            class="form-control @error('modelno') is-invalid @enderror"
+                                            value="{{ old('modelno') }}" placeholder="Model Number..." list="model_no">
                                         <span class="text-danger">
-                                            @error('quality')
+                                            @error('modelno')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                        <datalist id="model_no">
+                                            @foreach ($catg as $a)
+                                            <option value="{{$a->model_no}}">
+                                            @endforeach
+                                        </datalist>
+
+                                    </div>
+                                    <div class="form-group form-default form-static-label">
+                                        <input type="text" name="receive"
+                                            class="form-control @error('receive') is-invalid @enderror"
+                                            value="{{ old('receive') }}" placeholder="Received Through...">
+                                        <span class="text-danger">
+                                            @error('receive')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="model"
-                                            class="form-control @error('model') is-invalid @enderror"
-                                            value="{{ old('model') }}" placeholder="Model Number">
+                                        <input type="text" name="dealer"
+                                            class="form-control @error('dealer') is-invalid @enderror"
+                                            value="{{ old('dealer') }}" placeholder="Dealer Name...">
                                         <span class="text-danger">
-                                            @error('model')
+                                            @error('dealer')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input class="form-control @error('modelimg') is-invalid @enderror"
-                                            type="file" name="modelimg">
+                                        <input type="text" name="quantity"
+                                            class="form-control @error('quantity') is-invalid @enderror"
+                                            value="{{ old('quantity') }}" placeholder="Quantity..">
                                         <span class="text-danger">
-                                            @error('modelimg')
+                                            @error('quantity')
                                                 {{ $message }}
                                             @enderror
                                         </span>
+
+                                    </div>
+                                    <div class="form-group form-default form-static-label">
+                                        <input type="date" name="date"
+                                            class="form-control @error('date') is-invalid @enderror"
+                                            value="{{ old('date') }}" placeholder="Quantity..">
+                                        <span class="text-danger">
+                                            @error('date')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+
                                     </div>
                                     <button type="submit" class="btn btn-primary mt-3">Add Catg</button>
                                 </form>

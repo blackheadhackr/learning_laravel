@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 {{-- new section --}}
-                <div class="row my-3">
+                {{-- <div class="row my-3">
                     <div class="col-md-4 my-2">
                         <div class="card text-center order-visitor-card">
                             <div class="card-block">
@@ -158,12 +158,106 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
+                <hr>
+                <section>
+                    <div style="overflow-x:auto; table-responsive">
+
+                        <table id="producttable" class="table table-striped table-bordered-success" cellspacing="0"
+                            width="100%">
+                            <thead>
+                                <tr>
+                                    <th>S. No.</th>
+                                    <th>Product Name</th>
+                                    <th>Model Num.</th>
+                                    <th>Total Product</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $count = 1;
+                                @endphp
+                                @foreach ($product as $a)
+                                    <tr>
+                                        <td>{{ $count++ }}</td>
+                                        <td>{{ $a->name }}</td>
+                                        <td>{{ $a->model_no }}</td>
+                                        <td>{{ $a->total_product }}</td>
+                                        
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
                 @include('admin.common.footer')
             </main>
         </div>
     </div>
-    
+    <script>
+        $(document).ready(function() {
+
+            document.title = "Card View DataTable";
+            $("#producttable").DataTable({
+                dom: '<"dt-buttons"Bf><"clear">lirtp',
+                paging: true,
+                autoWidth: true,
+                buttons: [
+                    // {
+                    //     extend: 'colvis',
+                    //     className: 'btn btn-outline-primary'
+                    // },
+                    {
+                        extend: 'copyHtml5',
+                        className: 'btn btn-outline-success'
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        className: 'btn btn-outline-warning'
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        className: 'btn btn-outline-info'
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        className: 'btn btn-outline-danger'
+                    },
+                    {
+                        extend: 'print',
+                        className: 'btn btn-outline-secondary'
+                    }
+                ],
+                // initComplete: function(settings, json) {
+                //     $(".dt-buttons .btn-group").append(
+                //         '<a id="cv" class="btn btn-primary" href="#">CARD VIEW</a>'
+                //     );
+                //     $("#cv").on("click", function() {
+                //         if ($("#example").hasClass("card")) {
+                //             $(".colHeader").remove();
+                //         } else {
+                //             var labels = [];
+                //             $("#example thead th").each(function() {
+                //                 labels.push($(this).text());
+                //             });
+                //             $("#example tbody tr").each(function() {
+                //                 $(this)
+                //                     .find("td")
+                //                     .each(function(column) {
+                //                         $("<span class='colHeader'>" + labels[
+                //                             column] + ":</span>").prependTo(
+                //                             $(this)
+                //                         );
+                //                     });
+                //             });
+                //         }
+                //         $("#example").toggleClass("card");
+                //     });
+                // }
+            });
+        });
+    </script>
 </body>
 
 </html>

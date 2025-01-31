@@ -38,7 +38,7 @@
                             <thead>
                                 <tr>
                                     <th>S. No.</th>
-                                    <th>Laptop Name</th>
+                                    <th>Category Name</th>
                                     <th>Quality</th>
                                     <th>Model Number</th>
                                     <th>image</th>

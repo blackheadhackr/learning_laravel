@@ -16,4 +16,5 @@ Route::post('edit-catg',[Catg::class, 'edit_catg']);
 Route::post('getdata',[Catg::class, 'singledata'])->name('single');
 Route::post('deldata',[Catg::class, 'deldata'])->name('deleterecord');
 // products route from here =================>
+Route::post('add-product',[Product::class , 'addproduct'])->name('insertproduct');
 
