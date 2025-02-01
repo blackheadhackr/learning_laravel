@@ -209,55 +209,86 @@
                     <div class="modal-body">
                         <div class="card">
                             <div class="card-block">
-                                <form class="form-material" action="edit-catg" method="post"
-                                    enctype="multipart/form-data">
+                                <form class="form-material" action="{{route('updateproduct')}}" method="post">
                                     @csrf
-                                    <input type="hidden" name="id" id="editid">
+                                    <input type="text" name="id" id="hiddenid">
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="editname"
-                                            class="form-control @error('editname') is-invalid @enderror"
-                                            value="{{ old('editname') }}" placeholder="Product Name" id="editname">
+                                        <input type="text" name="name"
+                                            class="form-control @error('name') is-invalid @enderror"
+                                            value="{{ old('name') }}" placeholder="Product Name..." list="product_name" id="edit_name">
                                         <span class="text-danger">
-                                            @error('editname')
+                                            @error('name')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                            <datalist id="product_name">
+                                                @foreach ($catg as $a)
+                                                <option value="{{$a->name}}">
+                                                @endforeach
+                                            </datalist>
+
+                                    </div>
+                                    <div class="form-group form-default form-static-label">
+                                        <input type="text" name="modelno"
+                                            class="form-control @error('modelno') is-invalid @enderror"
+                                            value="{{ old('modelno') }}" placeholder="Model Number..." list="model_no" id="edit_model">
+                                        <span class="text-danger">
+                                            @error('modelno')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                        <datalist id="model_no">
+                                            @foreach ($catg as $a)
+                                            <option value="{{$a->model_no}}">
+                                            @endforeach
+                                        </datalist>
+
+                                    </div>
+                                    <div class="form-group form-default form-static-label">
+                                        <input type="text" name="receive"
+                                            class="form-control @error('receive') is-invalid @enderror"
+                                            value="{{ old('receive') }}" placeholder="Received Through..." id="edit_rec">
+                                        <span class="text-danger">
+                                            @error('receive')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="editquality"
-                                            class="form-control @error('editquality') is-invalid @enderror"
-                                            value="{{ old('editquality') }}" placeholder="Quality (OEM)"
-                                            id="editquality">
+                                        <input type="text" name="dealer"
+                                            class="form-control @error('dealer') is-invalid @enderror"
+                                            value="{{ old('dealer') }}" placeholder="Dealer Name..." id="edit_dealer">
                                         <span class="text-danger">
-                                            @error('editquality')
+                                            @error('dealer')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="editmodel"
-                                            class="form-control @error('editmodel') is-invalid @enderror"
-                                            value="{{ old('editmodel') }}" placeholder="Model Number"
-                                            id="mainmodeledit">
+                                        <input type="text" name="quantity"
+                                            class="form-control @error('quantity') is-invalid @enderror"
+                                            value="{{ old('quantity') }}" placeholder="Quantity.." id="edit_que">
                                         <span class="text-danger">
-                                            @error('editmodel')
+                                            @error('quantity')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input class="form-control @error('editmodelimg') is-invalid @enderror"
-                                            type="file" name="editmodelimg">
+                                        <input type="date" name="date"
+                                            class="form-control @error('date') is-invalid @enderror"
+                                            value="{{ old('date') }}" placeholder="Quantity.." id="edit_date">
                                         <span class="text-danger">
-                                            @error('editmodelimg')
+                                            @error('date')
                                                 {{ $message }}
                                             @enderror
                                         </span>
+
                                     </div>
-                                    <button type="submit" class="btn btn-primary mt-3">Update Catg</button>
+                                    <button type="submit" class="btn btn-primary mt-3">Add Catg</button>
                                 </form>
                             </div>
                         </div>
@@ -335,26 +366,31 @@
             });
         });
     </script>
-    {{-- <script>
+    <script>
         $(document).ready(function() {
             $(document).on('click','.main-edit', function() {
                 var buttonId = $(this).attr('id');
 
                 $.ajax({
-                    url: "{{ route('single') }}",
+                    url: "{{ route('singleproduct') }}",
                     type: "POST",
                     data: {
                         _token: '{{ csrf_token() }}',
                         id: buttonId
                     },
                     success: function(data) {
-                        $('#editid').val(data.id);
-                        $('#editname').val(data.name);
-                        $('#editquality').val(data.quality);
-                        $('#mainmodeledit').val(data.model_no);
+                        $('#hiddenid').val(data.id);
+                        $('#edit_name').val(data.name);
+                        $('#edit_model').val(data.model_no);
+                        $('#edit_rec').val(data.received);
+                        $('#edit_dealer').val(data.dealer);
+                        $('#edit_que').val(data.quantity);
+                        $('#edit_date').val(data.date);
                     }
                 });
             });
+
+            // delete ajax start from here==========>
             $(document).on('click','.del-btn', function() {
                 var buttonId = $(this).attr('id');
                 Swal.fire({
@@ -392,7 +428,7 @@
                 });
             });
         });
-    </script> --}}
+    </script>
 </body>
 
 </html>

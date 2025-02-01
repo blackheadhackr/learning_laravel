@@ -10,8 +10,6 @@ class Dashboard extends Controller
 {
     public function home(){
         $catg = DB::table('category')->orderBy('id','desc')->get();
-
-        // $product =DB::table('productin')->orderBy('id','desc')->get();
         $product = Productin::select('name','model_no',DB::raw('sum(quantity) as total_product'))->groupBy('name','model_no')->get();
 
         return view('admin.home',compact('catg','product'));

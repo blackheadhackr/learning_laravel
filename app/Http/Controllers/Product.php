@@ -24,4 +24,12 @@ class Product extends Controller
             return redirect('product')->with('success','Something went wrong Error!');
         }
     }
+    public function get_product(Request $req){
+        $id = $req->input('id');
+        $data = Productin::find($id);
+        return response()->json($data);
+    }
+    public function update_product(Request $req){
+        echo $id = $req->input('id');
+    }
 }
