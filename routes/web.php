@@ -19,4 +19,5 @@ Route::post('deldata',[Catg::class, 'deldata'])->name('deleterecord');
 Route::post('add-product',[Product::class , 'addproduct'])->name('insertproduct');
 Route::post('get-single-product',[Product::class , 'get_product'])->name('singleproduct');
 Route::post('update',[Product::class , 'update_product'])->name('updateproduct');
+Route::post('deleteproduct',[Product::class , 'delete_prduct'])->name('deleteproduct');
 

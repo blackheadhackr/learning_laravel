@@ -44,4 +44,19 @@ class Product extends Controller
             return redirect('product')->with('error','Error! Something went wrong...');
         }
     }
+    public function delete_prduct(Request $req){
+        $id = $req->input('id');
+        $data = Productin::destroy($id);
+        if($data){
+            $deldata = array(
+                'result' => 'success',
+            );
+        }else{
+            $deldata = array(
+                'result' => 'error',
+            );
+        }
+        return response()->json($deldata);
+
+    }
 }

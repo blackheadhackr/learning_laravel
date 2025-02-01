@@ -409,7 +409,7 @@
                 }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: "{{ route('deleterecord') }}",
+                        url: "{{ route('deleteproduct') }}",
                         type: 'POST',
                         data: {
                             _token: "{{ csrf_token() }}",
