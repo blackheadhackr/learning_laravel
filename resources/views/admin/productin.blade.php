@@ -36,6 +36,11 @@
                         {{session('success')}}
                     </div>
                     @endif
+                    @if (session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{session('error')}}
+                    </div>
+                    @endif
                     <div style="overflow-x:auto; table-responsive">
 
                         <table id="producttable" class="table table-striped table-bordered-success" cellspacing="0"
@@ -213,11 +218,11 @@
                                     @csrf
                                     <input type="text" name="id" id="hiddenid">
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="name"
-                                            class="form-control @error('name') is-invalid @enderror"
-                                            value="{{ old('name') }}" placeholder="Product Name..." list="product_name" id="edit_name">
+                                        <input type="text" name="editname"
+                                            class="form-control @error('editname') is-invalid @enderror"
+                                            value="{{ old('editname') }}" placeholder="Product Name..." list="product_name" id="edit_name">
                                         <span class="text-danger">
-                                            @error('name')
+                                            @error('editname')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -229,11 +234,11 @@
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="modelno"
-                                            class="form-control @error('modelno') is-invalid @enderror"
-                                            value="{{ old('modelno') }}" placeholder="Model Number..." list="model_no" id="edit_model">
+                                        <input type="text" name="editmodelno"
+                                            class="form-control @error('editmodelno') is-invalid @enderror"
+                                            value="{{ old('editmodelno') }}" placeholder="Model Number..." list="model_no" id="edit_model">
                                         <span class="text-danger">
-                                            @error('modelno')
+                                            @error('editmodelno')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -245,44 +250,44 @@
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="receive"
-                                            class="form-control @error('receive') is-invalid @enderror"
-                                            value="{{ old('receive') }}" placeholder="Received Through..." id="edit_rec">
+                                        <input type="text" name="editreceive"
+                                            class="form-control @error('editreceive') is-invalid @enderror"
+                                            value="{{ old('editreceive') }}" placeholder="Received Through..." id="edit_rec">
                                         <span class="text-danger">
-                                            @error('receive')
+                                            @error('editreceive')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="dealer"
-                                            class="form-control @error('dealer') is-invalid @enderror"
-                                            value="{{ old('dealer') }}" placeholder="Dealer Name..." id="edit_dealer">
+                                        <input type="text" name="editdealer"
+                                            class="form-control @error('editdealer') is-invalid @enderror"
+                                            value="{{ old('editdealer') }}" placeholder="Dealer Name..." id="edit_dealer">
                                         <span class="text-danger">
-                                            @error('dealer')
+                                            @error('editdealer')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="quantity"
-                                            class="form-control @error('quantity') is-invalid @enderror"
-                                            value="{{ old('quantity') }}" placeholder="Quantity.." id="edit_que">
+                                        <input type="text" name="editquantity"
+                                            class="form-control @error('editquantity') is-invalid @enderror"
+                                            value="{{ old('editquantity') }}" placeholder="Quantity.." id="edit_que">
                                         <span class="text-danger">
-                                            @error('quantity')
+                                            @error('editquantity')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="date" name="date"
-                                            class="form-control @error('date') is-invalid @enderror"
-                                            value="{{ old('date') }}" placeholder="Quantity.." id="edit_date">
+                                        <input type="date" name="editdate"
+                                            class="form-control @error('editdate') is-invalid @enderror"
+                                            value="{{ old('editdate') }}" placeholder="Quantity.." id="edit_date">
                                         <span class="text-danger">
-                                            @error('date')
+                                            @error('editdate')
                                                 {{ $message }}
                                             @enderror
                                         </span>
