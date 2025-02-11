@@ -20,9 +20,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link {{request()->is('product-out')?'active' : ''}}" href="/product-out">
                                 <span data-feather="users"></span>
-                                Customers
+                                Product Out
                             </a>
                         </li>
                         <li class="nav-item">

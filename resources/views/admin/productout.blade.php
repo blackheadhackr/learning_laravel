@@ -23,10 +23,10 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Product</h1>
+                    <h1 class="h2">Product Out</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <a class="btn btn-success" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop"style="float:left;margin-right:20px;" href="#">ADD
+                            data-bs-target="#staticBackdrop"style="float:left;margin-right:20px;" href="#">Out
                             Product</a>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header card-header">
-                        <h5>Add Product</h5>
+                        <h5>Out Product</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
