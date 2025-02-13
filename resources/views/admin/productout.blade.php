@@ -31,16 +31,9 @@
                     </div>
                 </div>
                 <section>
-                    @if (session('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{session('success')}}
-                    </div>
-                    @endif
-                    @if (session('error'))
-                    <div class="alert alert-danger" role="alert">
-                        {{session('error')}}
-                    </div>
-                    @endif
+                    @if (session('success')) <div class="alert alert-success" role="alert"> {{session('success')}} </div> @endif
+                    @if (session('error')) <div class="alert alert-danger" role="alert"> {{session('error')}} </div> @endif
+
                     <div style="overflow-x:auto; table-responsive">
 
                         <table id="producttable" class="table table-striped table-bordered-success" cellspacing="0"
@@ -111,16 +104,14 @@
                     <div class="modal-body">
                         <div class="card">
                             <div class="card-block">
-                                <form class="form-material" action="{{route('insertproduct')}}" method="post">
+                                <form class="form-material" action="{{route('outprod')}}" method="post">
                                     @csrf
                                     <div class="form-group form-default form-static-label">
                                         <input type="text" name="name"
                                             class="form-control @error('name') is-invalid @enderror"
                                             value="{{ old('name') }}" placeholder="Product Name..." list="product_name">
                                         <span class="text-danger">
-                                            @error('name')
-                                                {{ $message }}
-                                            @enderror
+                                            @error('name') {{ $message }} @enderror
                                         </span>
                                             <datalist id="product_name">
                                                 @foreach ($catg as $a)
@@ -146,22 +137,22 @@
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="receive"
-                                            class="form-control @error('receive') is-invalid @enderror"
-                                            value="{{ old('receive') }}" placeholder="Received Through...">
+                                        <input type="text" name="alloted"
+                                            class="form-control @error('alloted') is-invalid @enderror"
+                                            value="{{ old('alloted') }}" placeholder="Alloted Through...">
                                         <span class="text-danger">
-                                            @error('receive')
+                                            @error('alloted')
                                                 {{ $message }}
                                             @enderror
                                         </span>
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="dealer"
-                                            class="form-control @error('dealer') is-invalid @enderror"
-                                            value="{{ old('dealer') }}" placeholder="Dealer Name...">
+                                        <input type="text" name="ticketno"
+                                            class="form-control @error('ticketno') is-invalid @enderror"
+                                            value="{{ old('ticketno') }}" placeholder="ticket number...">
                                         <span class="text-danger">
-                                            @error('dealer')
+                                            @error('ticketno')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -250,11 +241,11 @@
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="editreceive"
-                                            class="form-control @error('editreceive') is-invalid @enderror"
-                                            value="{{ old('editreceive') }}" placeholder="Received Through..." id="edit_rec">
+                                        <input type="text" name="editalloted"
+                                            class="form-control @error('editalloted') is-invalid @enderror"
+                                            value="{{ old('editalloted') }}" placeholder="Received Through..." id="edit_rec">
                                         <span class="text-danger">
-                                            @error('editreceive')
+                                            @error('editalloted')
                                                 {{ $message }}
                                             @enderror
                                         </span>

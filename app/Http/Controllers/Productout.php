@@ -8,7 +8,15 @@ use App\Models\Productou;
 class Productout extends Controller
 {
     public function out_product(Request $req){
-        $table = Productou::all();
-        return $table;
+        return $req->validate([
+            'name' => 'required',
+            'modelno' => 'required',
+            'alloted' => 'required',
+            'ticketno' => 'required',
+            'quantity' => 'required',
+            'date' => 'required',
+        ],[
+            'required' => 'This feild is required please fill this first'
+        ]);
     }
 }
