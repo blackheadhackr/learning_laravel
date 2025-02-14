@@ -171,23 +171,28 @@
                                     <th>Product Name</th>
                                     <th>Model Num.</th>
                                     <th>Total Product</th>
+                                    <th>Product Out</th>
+                                    <th>Remain Product</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
                                     $count = 1;
                                 @endphp
-                                @foreach ($product as $a)
+                                @foreach ($data as $a)
                                     <tr>
                                         <td>{{ $count++ }}</td>
                                         <td>{{ $a->name }}</td>
                                         <td>{{ $a->model_no }}</td>
-                                        <td>{{ $a->total_product }}</td>
+                                        <td>{{ $a->inproduct }}</td>
+                                        <td>{{ $a->outproduct }}</td>
+                                        <td>{{ $a->diffrent }}</td>
                                         
                                     </tr>
                                 @endforeach
 
                             </tbody>
+                            
                         </table>
                     </div>
                 </section>

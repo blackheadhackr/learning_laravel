@@ -114,7 +114,7 @@
                                             @error('name') {{ $message }} @enderror
                                         </span>
                                             <datalist id="product_name">
-                                                @foreach ($catg as $a)
+                                                @foreach ($da as $a)
                                                 <option value="{{$a->name}}">
                                                 @endforeach
                                             </datalist>
@@ -130,7 +130,7 @@
                                             @enderror
                                         </span>
                                         <datalist id="model_no">
-                                            @foreach ($catg as $a)
+                                            @foreach ($dat as $a)
                                             <option value="{{$a->model_no}}">
                                             @endforeach
                                         </datalist>
@@ -218,7 +218,7 @@
                                             @enderror
                                         </span>
                                             <datalist id="product_name">
-                                                @foreach ($catg as $a)
+                                                @foreach ($da as $a)
                                                 <option value="{{$a->name}}">
                                                 @endforeach
                                             </datalist>
@@ -234,7 +234,7 @@
                                             @enderror
                                         </span>
                                         <datalist id="model_no">
-                                            @foreach ($catg as $a)
+                                            @foreach ($dat as $a)
                                             <option value="{{$a->model_no}}">
                                             @endforeach
                                         </datalist>

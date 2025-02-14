@@ -24,4 +24,5 @@ Route::post('deleteproduct',[Product::class , 'delete_prduct'])->name('deletepro
 // products Out route from here =================>
 Route::get('product-out', [Dashboard::class , 'productout']);
 Route::post('out-data',[Productout::class, 'out_product'])->name('outprod');
+Route::get('out-data',[Productout::class, 'join']);
 
