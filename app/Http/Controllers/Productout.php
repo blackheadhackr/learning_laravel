@@ -20,9 +20,19 @@ class Productout extends Controller
         ]);
         if($validation){
             $table = new Productou;
-            return $table->name;
+            $table->name = $req->input('name');
+            $table->model_no = $req->input('modelno');
+            $table->alloted_to = $req->input('alloted');
+            $table->ticket_no = $req->input('ticketno');
+            $table->quantity = $req->input('quantity');
+            $table->date = $req->input('date');
+            if($table->save()){
+                return redirect('product-out')->with('success','success full Thankyou!');
+            }else{
+                return redirect('product-out')->with('error','Something went wrong please check your form');
+            }
         }else{
-            return redirect('productout')->with('error','Something went wrong please check your form');
+            return redirect('product-out')->with('error','Something went wrong please check your form');
         }
     }
 }

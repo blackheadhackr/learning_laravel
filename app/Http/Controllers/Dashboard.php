@@ -25,7 +25,7 @@ class Dashboard extends Controller
     }
     public function productout(){
         $catg = DB::table('category')->orderBy('id','desc')->get();
-        $product = DB::table('productin')->orderBy('id','desc')->get();
+        $product = DB::table('productout')->orderBy('id','desc')->get();
         return view('admin.productout',compact('catg','product'));
     }
 

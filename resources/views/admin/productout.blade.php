@@ -42,11 +42,11 @@
                                 <tr>
                                     <th>S. No.</th>
                                     <th>Product Name</th>
-                                    <th>Model Num.</th>
-                                    <th>Recived Through</th>
-                                    <th>Dealer Name</th>
+                                    <th>Model Number</th>
+                                    <th>Alloted To</th>
+                                    <th>Ticket_no</th>
                                     <th>Quantity</th>
-                                    <th>Date Of Recived</th>
+                                    <th>Date</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -59,8 +59,8 @@
                                         <td>{{ $count++ }}</td>
                                         <td>{{ $a->name }}</td>
                                         <td>{{ $a->model_no }}</td>
-                                        <td>{{ $a->received }}</td>
-                                        <td>{{ $a->dealer }}</td>
+                                        <td>{{ $a->alloted_to }}</td>
+                                        <td>{{ $a->ticket_no }}</td>
                                         <td>{{ $a->quantity }}</td>
                                         <td>{{ $a->date }}</td>
                                         <td>
