@@ -180,7 +180,7 @@
                                     $count = 1;
                                 @endphp
                                 @foreach ($data as $a)
-                                    <tr>
+                                    <tr  class="{{$a->diffrent <= 0 ? 'bg-danger text-light' : ''}}">
                                         <td>{{ $count++ }}</td>
                                         <td>{{ $a->name }}</td>
                                         <td>{{ $a->model_no }}</td>
