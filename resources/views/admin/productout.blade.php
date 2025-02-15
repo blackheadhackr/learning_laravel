@@ -205,7 +205,7 @@
                     <div class="modal-body">
                         <div class="card">
                             <div class="card-block">
-                                <form class="form-material" action="{{route('updateproduct')}}" method="post">
+                                <form class="form-material" action="{{route('out_update')}}" method="post">
                                     @csrf
                                     <input type="hidden" name="id" id="hiddenid">
                                     <div class="form-group form-default form-static-label">
@@ -243,7 +243,7 @@
                                     <div class="form-group form-default form-static-label">
                                         <input type="text" name="editalloted"
                                             class="form-control @error('editalloted') is-invalid @enderror"
-                                            value="{{ old('editalloted') }}" placeholder="Received Through..." id="edit_rec">
+                                            value="{{ old('editalloted') }}" placeholder="Alloted To..." id="edit_rec">
                                         <span class="text-danger">
                                             @error('editalloted')
                                                 {{ $message }}
@@ -252,11 +252,11 @@
 
                                     </div>
                                     <div class="form-group form-default form-static-label">
-                                        <input type="text" name="editdealer"
-                                            class="form-control @error('editdealer') is-invalid @enderror"
-                                            value="{{ old('editdealer') }}" placeholder="Dealer Name..." id="edit_dealer">
+                                        <input type="text" name="editticker"
+                                            class="form-control @error('editticker') is-invalid @enderror"
+                                            value="{{ old('editticker') }}" placeholder="Ticket Number..." id="edit_ticket">
                                         <span class="text-danger">
-                                            @error('editdealer')
+                                            @error('editticker')
                                                 {{ $message }}
                                             @enderror
                                         </span>
@@ -368,7 +368,7 @@
                 var buttonId = $(this).attr('id');
 
                 $.ajax({
-                    url: "{{ route('singleproduct') }}",
+                    url: "{{ route('singleoutproduct') }}",
                     type: "POST",
                     data: {
                         _token: '{{ csrf_token() }}',
@@ -378,8 +378,8 @@
                         $('#hiddenid').val(data.id);
                         $('#edit_name').val(data.name);
                         $('#edit_model').val(data.model_no);
-                        $('#edit_rec').val(data.received);
-                        $('#edit_dealer').val(data.dealer);
+                        $('#edit_rec').val(data.alloted_to);
+                        $('#edit_ticket').val(data.ticket_no);
                         $('#edit_que').val(data.quantity);
                         $('#edit_date').val(data.date);
                     }
