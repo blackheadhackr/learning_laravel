@@ -59,6 +59,20 @@ class Productout extends Controller
 
         }
     }
+    public function outdata_delete(Request $req){
+        $id = $req->input('id');
+        $data = Productou::destroy($id);
+        if($data){
+            $dataarray = array(
+                'result' => 'success'
+            );
+        }else{
+            $dataarray = array(
+                'result' => 'error'
+            );
+        }
+        return response()->json($dataarray);
+    }
 
     public function join(){
         $data = DB::table('productin as p')
