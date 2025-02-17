@@ -6,9 +6,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         
-        {{-- <div class="navbar-nav">
+        <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="#">Sign out</a>
+                {{-- <a class="nav-link px-3" href="#">Sign out</a> --}}
+                <span class="nav-link px-3">Welcome @if (session('name')) {{session('name')}} @endif</span>
             </div>
-        </div> --}}
+        </div>
     </header>

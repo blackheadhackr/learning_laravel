@@ -71,6 +71,12 @@
                                 dashboard link
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('logout')}}">
+                                <span data-feather="file-text"></span>
+                               Logout
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>

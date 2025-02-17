@@ -34,6 +34,11 @@
                         </button>
                     </div>
                 </div>
+                @if (session('login'))
+                    <div class="alert alert-success" role="alert">
+                        {{session('login')}}
+                    </div>
+                @endif
                 {{-- card section --}}
                 <div class="row my-3">
                     <div class="col-md-4 my-2">
