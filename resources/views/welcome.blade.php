@@ -165,15 +165,15 @@ button:hover {
         <span class="icon">
           <i class="fa-solid fa-envelope"></i>
         </span>
-        <input type="emal" name="email" required>
-        <label for="">Email</label>
+        <input type="emal" id="email" name="email" required>
+        <label for="email">Email</label>
       </div>
       <div class="input-box">
         <span class="icon">
           <i class="fa-solid fa-lock"></i>
         </span>
-        <input type="password" name="email" required>
-        <label for="">password</label>
+        <input type="password" id="pass" name="pass" required>
+        <label for="pass">password</label>
       </div>
       <div class="remember-forgot">
         <label>
@@ -184,8 +184,9 @@ button:hover {
       <button type="submit">Login</button>
       <div class="link">
         <p>
-          Don't have an account?
-          <a href="#">Register</a>
+          Check developer account?
+          <a href="https://in.linkedin.com/in/developerdharmender">LinkedIn</a>
+          <a href="https://github.com/blackheadhackr">Github</a>
         </p>
       </div>
     </form>
