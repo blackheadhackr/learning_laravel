@@ -35,6 +35,5 @@ class Login extends Controller
         auth()->logout();
         session()->flush();
         return redirect('login');
-
     }
 }

@@ -222,7 +222,6 @@
                                                 <option value="{{$a->name}}">
                                                 @endforeach
                                             </datalist>
-
                                     </div>
                                     <div class="form-group form-default form-static-label">
                                         <input type="text" name="editmodelno"
