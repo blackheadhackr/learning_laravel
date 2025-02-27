@@ -41,5 +41,6 @@ Route::get('login', function () {
         Route::get('out-data',[Productout::class, 'join']);
         // testing ====================================================>
         Route::get('load-user',[AddUsercontroller::class , 'adduser'])->name('useradd');
-        Route::get('user-data',[AddUsercontroller::class , 'alluser']);
+        Route::post('add-user',[AddUsercontroller::class , 'adddata'])->name('adduser');
+        Route::get('user-data',[AddUsercontroller::class , 'alluser'])->name('alluser');
     });

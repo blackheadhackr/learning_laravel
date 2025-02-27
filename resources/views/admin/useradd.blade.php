@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
+    <title>Add User</title>
     @include('admin.common.headlink')
     <link rel="shortcut icon" href="{{asset('assets/images/icons/fabicon.png')}}" type="image/x-icon">
 </head>
@@ -34,14 +34,46 @@
                         </button>
                     </div>
                 </div>
-                @if (session('login'))
+                {{-- main content start fron here --}}
+                @if (session('msg'))
                     <div class="alert alert-success" role="alert">
-                        {{session('login')}}
+                        {{session('msg')}}
                     </div>
                 @endif
-                {{-- main content start fron here --}}
-                    <h1 class="text-center text-danger">Add user</h1>
-                {{-- main content end fron here --}}                
+                @if (session('msgg'))
+                    <div class="alert alert-danger" role="alert">
+                        {{session('msgg')}}
+                    </div>
+                @endif
+                <div class="container border rounded p-4" style="max-width:40rem;">
+                    <h1 class="text-center text-danger">Add User</h1><hr>
+                    <form action="{{route('adduser')}}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                          <label for="name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}">
+                          <span class="text-danger">@error('name') {{$message}} @enderror</span>
+                        </div>
+                        <div class="mb-3">
+                          <label for="email" class="form-label">Email address</label>
+                          <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}">
+                          <span class="text-danger">@error('email') {{$message}} @enderror</span>
+                        </div>
+                        <div class="mb-3">
+                          <label for="password" class="form-label">Password</label>
+                          <input type="password" class="form-control" id="password" name="pass" value="{{old('pass')}}">
+                          <span class="text-danger">@error('pass') {{$message}} @enderror</span>
+                        </div>
+                        <div class="mb-3">
+                          <label for="cpass" class="form-label">Confirm Password</label>
+                          <input type="password" class="form-control" id="cpass" name="Cpass" value="{{old('Cpass')}}">
+                          <span class="text-danger">@error('Cpass') {{$message}} @enderror</span>
+                        </div>
+                        {{-- =========== Button ============ --}}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                </div>
+                {{-- main content end fron here --}}
                 @include('admin.common.footer')
             </main>
         </div>

@@ -78,6 +78,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('alluser')}}">
+                                <span data-feather="file-text"></span>
+                                All User
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{route('logout')}}">
                                 <span data-feather="file-text"></span>
                                Logout

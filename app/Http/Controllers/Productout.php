@@ -73,7 +73,6 @@ class Productout extends Controller
         }
         return response()->json($dataarray);
     }
-
     public function join(){
         $data = DB::table('productin as p')
         ->select('p.name','p.model_no', DB::raw('COALESCE(SUM(p.quantity),0) as inproduct'),
