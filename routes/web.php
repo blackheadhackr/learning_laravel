@@ -7,6 +7,7 @@ use App\Http\Controllers\Product;
 use App\Http\Controllers\Productout;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\AddUsercontroller;
+use App\Http\Controllers\Maill;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,3 +45,4 @@ Route::get('login', function () {
         Route::post('add-user',[AddUsercontroller::class , 'adddata'])->name('adduser');
         Route::get('user-data',[AddUsercontroller::class , 'alluser'])->name('alluser');
     });
+    Route::get('mail',[Maill::class , 'mail']);

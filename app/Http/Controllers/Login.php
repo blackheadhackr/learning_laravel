@@ -22,7 +22,7 @@ class Login extends Controller
             $pass = $req->pass;
             $data = UserLogin::where('email',$email)->first();
 
-            if($data && $data->password = $pass){
+            if($data->password == $pass){
                 $req->session()->put(['name' => $data->name]);
                 return redirect('dashboard')->with('login', 'Please Enjoy, You are logged in Successdully!');
             }else{
